@@ -140,13 +140,13 @@ export default function AppBar() {
                 sx={{
                   backgroundColor: "#FF9900", // Amazon Orange
                   color: "#fff",
-                  padding: "10px 20px",
+                  padding: { xs: "8px 12px", sm: "10px 20px" }, // Kleinere Padding-Werte für mobile Ansichten
                   margin: "5px",
                   borderRadius: "4px",
                   fontWeight: "bold",
                   textTransform: "none",
                   boxShadow: "none",
-                  width: "150px", // Gleiche Breite für beide Buttons
+                  width: { xs: "120px", sm: "150px" }, // Angepasste Breite: 120px auf xs, 150px ab sm
                   "&:hover": {
                     backgroundColor: "#e88b00",
                   },
@@ -155,20 +155,20 @@ export default function AppBar() {
                 size="medium"
                 onClick={() => navigate("/signup")}
               >
-                Registrieren
+                Sign Up
               </Button>
               <Button
                 sx={{
                   backgroundColor: "#fff",
                   color: "#111",
-                  padding: "10px 20px",
+                  padding: { xs: "8px 12px", sm: "10px 20px" },
                   margin: "5px",
                   borderRadius: "4px",
                   fontWeight: "bold",
                   textTransform: "none",
                   border: "1px solid #ccc",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-                  width: "150px", // Gleiche Breite für beide Buttons
+                  width: { xs: "120px", sm: "150px" },
                   "&:hover": {
                     backgroundColor: "#f2f2f2",
                   },

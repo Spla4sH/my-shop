@@ -104,7 +104,7 @@ const CartPage = () => {
   return (
     <Box
       sx={{
-        mt: 2,
+        mt: { xs: 20, md: 2 },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -255,7 +255,7 @@ const CartPage = () => {
           >
             <Table>
               <TableHead>
-                <Typography sx={{ fontWeight: "bold", fontSize: "4rem" }}>
+                <Typography sx={{ fontWeight: "bold", fontSize: "5rem" }}>
                   {" "}
                   Warenkorb{" "}
                 </Typography>

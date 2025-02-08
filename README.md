@@ -1,12 +1,13 @@
 # myshop-app
 
+This is a Shop Application for "Hochschule Furtwangen" for the Course "Webprogrammierung mit React".
+
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Running the Development Server](#running-the-development-server)
 4. [Folder Structure](#folder-structure)
-
 5. [Preview](#preview)
 
 ---
@@ -84,3 +85,5 @@ project-root/
 ├── README.md             # Project documentation
 └── vite.config.js        # Vite configuration file
 ```
+
+## Preview
