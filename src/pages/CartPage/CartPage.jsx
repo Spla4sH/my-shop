@@ -255,6 +255,10 @@ const CartPage = () => {
           >
             <Table>
               <TableHead>
+                <Typography sx={{ fontWeight: "bold", fontSize: "4rem" }}>
+                  {" "}
+                  Warenkorb{" "}
+                </Typography>
                 <TableRow>
                   <TableCell>
                     <Typography variant="subtitle1" fontWeight="bold">

@@ -18,26 +18,6 @@ function Footer() {
         width: "100%",
       }}
     >
-      <Typography variant="body1">
-        Icons by{" "}
-        <Link
-          href="https://icons8.com/"
-          target="_blank"
-          rel="noopener"
-          color="inherit"
-        >
-          icons8
-        </Link>{" "}
-        and{" "}
-        <Link
-          href="https://flaticon.com"
-          target="_blank"
-          rel="noopener"
-          color="inherit"
-        >
-          flaticon.com
-        </Link>
-      </Typography>
       <Typography
         variant="body2"
         sx={{ textAlign: "center", fontWeight: 300, marginTop: 4 }}

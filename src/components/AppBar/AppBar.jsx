@@ -137,17 +137,49 @@ export default function AppBar() {
             >
               <LanguageButton />
               <Button
-                sx={{ backgroundColor: "pink" }}
+                sx={{
+                  backgroundColor: "#FF9900", // Amazon Orange
+                  color: "#fff",
+                  padding: "10px 20px",
+                  margin: "5px",
+                  borderRadius: "4px",
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  boxShadow: "none",
+                  width: "150px", // Gleiche Breite für beide Buttons
+                  "&:hover": {
+                    backgroundColor: "#e88b00",
+                  },
+                }}
+                variant="contained"
+                size="medium"
                 onClick={() => navigate("/signup")}
               >
-                Sign Up
+                Registrieren
               </Button>
               <Button
-                sx={{ backgroundColor: "pink" }}
+                sx={{
+                  backgroundColor: "#fff",
+                  color: "#111",
+                  padding: "10px 20px",
+                  margin: "5px",
+                  borderRadius: "4px",
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  border: "1px solid #ccc",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                  width: "150px", // Gleiche Breite für beide Buttons
+                  "&:hover": {
+                    backgroundColor: "#f2f2f2",
+                  },
+                }}
+                variant="outlined"
+                size="medium"
                 onClick={() => navigate("/login")}
               >
                 Login
               </Button>
+
               <CartButtonWithArticlesCount
                 color={
                   location.pathname == "/cart" ? "secondary.main" : "white"
