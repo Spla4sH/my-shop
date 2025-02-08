@@ -92,7 +92,7 @@ function CategoryPage() {
     <Box
       sx={{
         //backgroundColor: { xs: "red", lg: "green", xl: "yellow" },
-        marginY: 2,
+        marginY: 20,
         marginX: { xs: 1, lg: "120px", xl: "280px" },
         display: "flex",
         flexWrap: "wrap",

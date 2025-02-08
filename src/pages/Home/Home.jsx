@@ -38,6 +38,7 @@ function Home() {
             background: "linear-gradient(to right, lightyellow, white)",
             height: { xs: "25vh", md: "40vh" },
             display: "flex",
+            marginTop: "100px",
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",

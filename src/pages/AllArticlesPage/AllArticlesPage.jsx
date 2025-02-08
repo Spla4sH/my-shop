@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getArticles } from "../../api";
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
 import { setSearchText } from "../../store/articleSlice";
-
+import { Toolbar } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
 
@@ -69,6 +69,7 @@ function AllArticlesPage() {
         sx={{
           display: "flex",
           justifyContent: "center",
+
           alignItems: "center",
           flexDirection: "column",
         }}
@@ -89,52 +90,56 @@ function AllArticlesPage() {
   }
 
   return (
-    <Box
-      sx={{
-        //backgroundColor: { xs: "red", lg: "green", xl: "yellow" },
-        marginY: 2,
-        marginX: { xs: 1, lg: "120px", xl: "280px" },
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent:
-          filteredArticles.length <= 3 && filteredArticles.length > 0
-            ? { xs: "center", md: "flex-start" }
-            : "center",
-        alignItems: "center",
-        rowGap: 5,
-        columnGap: 1,
-        paddingTop: 5,
-      }}
-    >
-      {filteredArticles.length > 0 ? (
-        <>
-          {filteredArticles.map((article) => (
-            <ArticleCard key={article._id} article={article} />
-          ))}
-          {filteredArticles.length > 8 && <ScrollUpButton />}
-        </>
-      ) : (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
-        >
-          <Typography
-            variant="h5"
-            color="primary.light"
-            sx={{ fontWeight: 500 }}
+    <>
+      <Toolbar />
+      <Box
+        sx={{
+          //backgroundColor: { xs: "red", lg: "green", xl: "yellow" },
+          marginY: 10,
+          marginX: { xs: 1, lg: "120px", xl: "280px" },
+
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent:
+            filteredArticles.length <= 3 && filteredArticles.length > 0
+              ? { xs: "center", md: "flex-start" }
+              : "center",
+          alignItems: "center",
+          rowGap: 5,
+          columnGap: 1,
+          paddingTop: 5,
+        }}
+      >
+        {filteredArticles.length > 0 ? (
+          <>
+            {filteredArticles.map((article) => (
+              <ArticleCard key={article._id} article={article} />
+            ))}
+            {filteredArticles.length > 8 && <ScrollUpButton />}
+          </>
+        ) : (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
           >
-            {t("no-results")} <b>{searchText}</b>
-          </Typography>
-          <Button sx={{ marginTop: 2 }} onClick={handleClearSearch}>
-            {t("reset-search")}
-          </Button>
-        </Box>
-      )}
-    </Box>
+            <Typography
+              variant="h5"
+              color="primary.light"
+              sx={{ fontWeight: 500 }}
+            >
+              {t("no-results")} <b>{searchText}</b>
+            </Typography>
+            <Button sx={{ marginTop: 2 }} onClick={handleClearSearch}>
+              {t("reset-search")}
+            </Button>
+          </Box>
+        )}
+      </Box>
+    </>
   );
 }
 

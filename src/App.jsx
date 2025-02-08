@@ -14,6 +14,8 @@ import store from "./store/store";
 import theme from "./theme/theme";
 import i18n from "./i18n/i18n";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import LoginPage from "./pages/LoginPage/Loginpage";
+import SignUpPage from "./pages/SingupPage/SingupPage";
 
 function App() {
   return (
@@ -33,12 +35,15 @@ function App() {
               <Box sx={{ flexGrow: 1 }}>
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/signup" element={<SignUpPage />} />
                   <Route path="/cart" element={<CartPage />} />
                   <Route path="/articles" element={<AllArticlesPage />} />
                   <Route
                     path="/article/:articleId"
                     element={<ArticleDetailPage />}
                   />
+
                   <Route
                     path="/category/:categoryId"
                     element={<CategoryPage />}
