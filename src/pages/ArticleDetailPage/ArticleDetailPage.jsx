@@ -59,14 +59,14 @@ function ArticleDetailPage() {
   };
 
   return (
-    <Box sx={{ paddingTop: 4, m: 2 }}>
+    <Box sx={{ paddingTop: 20, m: 2 }}>
       {loading ? (
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "50vh",
+            height: "69vh",
           }}
         >
           <CircularProgress />
@@ -78,10 +78,11 @@ function ArticleDetailPage() {
       ) : article ? (
         <Card
           sx={{
-            maxWidth: 800,
+            maxWidth: 1000,
             margin: "auto",
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
+
             boxShadow: 3,
           }}
         >
@@ -89,11 +90,11 @@ function ArticleDetailPage() {
           <CardMedia
             component="img"
             sx={{
-              width: { xs: "100%", md: "40%" },
-              objectFit: "cover",
+              width: { xs: "100%", md: "40%", margin: 20 },
+              objectFit: "contain",
               height: { xs: 200, md: "auto" },
             }}
-            image={article.imageUrl || cardImgPlaceholder}
+            image={article.href.replace("3005", "3030") || cardImgPlaceholder}
             alt={article.name}
           />
 
@@ -120,7 +121,7 @@ function ArticleDetailPage() {
               </Typography>
               <Divider sx={{ marginY: 2 }} />
               <Typography variant="h5" sx={{ mb: 1, color: "black" }}>
-                {article.price} €
+                Preis: {article.price} €
               </Typography>
 
               <Typography variant="body1" sx={{ mb: 1 }}>

@@ -5,6 +5,7 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  Box, // NEU: Box importiert für zusätzlichen Wrapper
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +38,7 @@ function ArticleCard({ article }) {
         m: 1,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        // Entferne justifyContent: "space-between" um eine eigene Zentrierung zu ermöglichen
       }}
     >
       <CardMedia
@@ -54,30 +55,45 @@ function ArticleCard({ article }) {
         image={article.href.replace("3005", "3030") || cardImgPlaceholder}
         alt={article.name}
       />
-      <CardContent sx={{ textAlign: "center", m: 0, p: 0 }}>
-        <Typography
-          variant="h5"
-          sx={{ fontWeight: "bold", paddingTop: 0, m: 0 }}
-        >
-          {article.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {article.price} €
-        </Typography>
-      </CardContent>
-      <CardActions
+
+      {/* NEU: Wrapper-Box für zentrierten Inhalt und Buttons */}
+      <Box
         sx={{
+          flexGrow: 1, // Nimmt den übrigen Platz ein
           display: "flex",
-          justifyContent: "end",
+          flexDirection: "column",
+          justifyContent: "center", // Vertikale Zentrierung
+          alignItems: "center", // Horizontale Zentrierung
         }}
       >
-        <Button variant="outlined" size="small" onClick={handleViewDetails}>
-          {t("details")}
-        </Button>
-        <Button variant="contained" size="small" onClick={handleAddToCart}>
-          {t("add-to-cart")}
-        </Button>
-      </CardActions>
+        <CardContent sx={{ textAlign: "center", m: 0, p: 0 }}>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: "bold", paddingTop: 0, m: 0 }}
+          >
+            {article.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {article.price} €
+          </Typography>
+        </CardContent>
+
+        <CardActions
+          sx={{
+            display: "flex",
+            justifyContent: "center", // GEÄNDERT: Von "end" zu "center"
+            alignItems: "center", // NEU: Sorgt für horizontale Zentrierung
+            gap: 1, // NEU: Abstand zwischen den Buttons
+          }}
+        >
+          <Button variant="outlined" size="small" onClick={handleViewDetails}>
+            {t("details")}
+          </Button>
+          <Button variant="contained" size="small" onClick={handleAddToCart}>
+            {t("add-to-cart")}
+          </Button>
+        </CardActions>
+      </Box>
     </Card>
   );
 }
