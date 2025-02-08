@@ -70,15 +70,13 @@ project-root/
 │   ├── api/              # API endpoints
 │   ├── assets/           # static assets
 │   ├── components/       # Reusable React components
-│   ├── i18n/               # Database mock for testing
-│   ├── locales/            # Page components
-│   ├── pages/            # Theme
-│   ├── store/           # Global style
-│   ├── theme/           # Main application component
-│   ├── App.css         # Global style
-    ├── App.jsx         # Global style
-│   ├── index.css          # Entry point for Vite
-    └── main.jsx          # Entry point for Vit
+│   ├── db/               # Database mock for testing
+│   ├── pages/            # Page components
+│   ├── theme/            # Theme
+│   ├── App.css           # Global style
+│   ├── App.jsx           # Main application component
+│   ├── index.css         # Global style
+│   └── main.jsx          # Entry point for Vite
 ├── .gitignore            # Files to ignore in Git
 ├── eslint.config.js      # ESLint configuration
 ├── index.html            # HTML template
@@ -89,3 +87,7 @@ project-root/
 ```
 
 ## Preview
+
+![image](https://github.com/user-attachments/assets/8086872a-5317-4203-9b05-52efb5aa89c2)
+![image](https://github.com/user-attachments/assets/5a778fc0-397e-4101-81cb-b72e883cd62b)
+![image](https://github.com/user-attachments/assets/ba0a1066-a5d1-4a73-8a09-8dc1260770b8)
