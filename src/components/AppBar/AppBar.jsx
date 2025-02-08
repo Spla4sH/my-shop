@@ -1,23 +1,28 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   AppBar as MuiAppBar,
   Toolbar,
   Typography,
   Button,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  IconButton,
+  Slide,
+  useScrollTrigger,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import shopIcon from "../../assets/icons/icons8-shopee-100.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import LanguageButton from "../LanguageButton/LanguageButton";
 import ArticleSearch from "../ArticleSearch/ArticleSearch";
 import { getCategories } from "../../api";
-import { useEffect, useState } from "react";
-
 import { useTranslation } from "react-i18next";
-
 import CartButtonWithArticlesCount from "../CartButtonWithArticlesCount/CartButtonWithArticlesCount";
-
-import { Slide, useScrollTrigger } from "@mui/material";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -28,19 +33,27 @@ function HideOnScroll(props) {
     </Slide>
   );
 }
+
 export default function AppBar() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [categories, setCategories] = useState([]);
-
   const [categoriesList, setCategoriesList] = useState([]);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prev) => !prev);
+  };
 
   function handleCategoryClick(categoryId) {
-    if (categoryId === "all") navigate("/articles");
-    else {
+    if (categoryId === "all") {
+      navigate("/articles");
+    } else {
       navigate(`/category/${categoryId}`);
     }
+    // Schließe das Menü, wenn ein Element ausgewählt wurde
+    setMobileOpen(false);
   }
 
   useEffect(() => {
@@ -68,10 +81,26 @@ export default function AppBar() {
     setCategoriesList(updatedCategories);
   }, [categories]);
 
+  // Inhalt des Drawers (Burger-Menü) für mobile Ansichten
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ width: 250 }}>
+      <List>
+        {categoriesList.map((category) => (
+          <ListItem key={category._id} disablePadding>
+            <ListItemButton onClick={() => handleCategoryClick(category._id)}>
+              <ListItemText primary={category.name} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <Box sx={{ flexGrow: 1, textAlign: "start" }}>
       <HideOnScroll>
         <MuiAppBar position="fixed">
+          {/* Obere Toolbar mit Logo und Desktop-Elementen */}
           <Toolbar
             sx={{
               height: { xs: "70px", md: "85px" },
@@ -140,13 +169,13 @@ export default function AppBar() {
                 sx={{
                   backgroundColor: "#FF9900", // Amazon Orange
                   color: "#fff",
-                  padding: { xs: "8px 12px", sm: "10px 20px" }, // Kleinere Padding-Werte für mobile Ansichten
+                  padding: { xs: "8px 12px", sm: "10px 20px" },
                   margin: "5px",
                   borderRadius: "4px",
                   fontWeight: "bold",
                   textTransform: "none",
                   boxShadow: "none",
-                  width: { xs: "120px", sm: "150px" }, // Angepasste Breite: 120px auf xs, 150px ab sm
+                  width: { xs: "120px", sm: "150px" },
                   "&:hover": {
                     backgroundColor: "#e88b00",
                   },
@@ -182,39 +211,40 @@ export default function AppBar() {
 
               <CartButtonWithArticlesCount
                 color={
-                  location.pathname == "/cart" ? "secondary.main" : "white"
+                  location.pathname === "/cart" ? "secondary.main" : "white"
                 }
               />
             </Box>
           </Toolbar>
 
-          {/* ArticleSearch for mobile */}
+          {/* Mobile Toolbar: Burger-Menü-Icon + Suchfeld */}
           <Toolbar
             sx={{
-              display: {
-                xs: "flex",
-                md: "none",
-              },
+              display: { xs: "flex", md: "none" },
               height: "50px",
               backgroundColor: "primary.main",
-              justifyContent: "center",
               alignItems: "center",
-              p: 4,
+              pl: 1,
+              pr: 1,
             }}
           >
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
             <ArticleSearch />
           </Toolbar>
 
+          {/* Desktop-Kategorien (nur für md und größere Ansichten) */}
           <Toolbar
             sx={{
-              display: {
-                xs: "none",
-                md: "block",
-              },
-              height: {
-                xs: "40px",
-                md: "60px",
-              },
+              display: { xs: "none", md: "block" },
+              height: { xs: "40px", md: "60px" },
             }}
           >
             {categoriesList.map((category) => (
@@ -233,6 +263,18 @@ export default function AppBar() {
           </Toolbar>
         </MuiAppBar>
       </HideOnScroll>
+
+      {/* Drawer für mobile Kategorien */}
+      <Drawer
+        anchor="left"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // verbessert die Leistung bei mobilen Geräten
+        }}
+      >
+        {drawer}
+      </Drawer>
     </Box>
   );
 }

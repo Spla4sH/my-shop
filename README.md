@@ -70,13 +70,15 @@ project-root/
 │   ├── api/              # API endpoints
 │   ├── assets/           # static assets
 │   ├── components/       # Reusable React components
-│   ├── db/               # Database mock for testing
-│   ├── pages/            # Page components
-│   ├── theme/            # Theme
-│   ├── App.css           # Global style
-│   ├── App.jsx           # Main application component
-│   ├── index.css         # Global style
-│   └── main.jsx          # Entry point for Vite
+│   ├── i18n/               # Database mock for testing
+│   ├── locales/            # Page components
+│   ├── pages/            # Theme
+│   ├── store/           # Global style
+│   ├── theme/           # Main application component
+│   ├── App.css         # Global style
+    ├── App.jsx         # Global style
+│   ├── index.css          # Entry point for Vite
+    └── main.jsx          # Entry point for Vit
 ├── .gitignore            # Files to ignore in Git
 ├── eslint.config.js      # ESLint configuration
 ├── index.html            # HTML template
