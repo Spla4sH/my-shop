@@ -175,7 +175,7 @@ export default function AppBar() {
                   fontWeight: "bold",
                   textTransform: "none",
                   boxShadow: "none",
-                  width: { xs: "120px", sm: "150px" },
+                  width: { xs: "130px", sm: "160px" },
                   "&:hover": {
                     backgroundColor: "#e88b00",
                   },
@@ -184,7 +184,7 @@ export default function AppBar() {
                 size="medium"
                 onClick={() => navigate("/signup")}
               >
-                Sign Up
+                {t("sign-up")}
               </Button>
               <Button
                 sx={{
@@ -197,7 +197,7 @@ export default function AppBar() {
                   textTransform: "none",
                   border: "1px solid #ccc",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-                  width: { xs: "120px", sm: "150px" },
+                  width: { xs: "130px", sm: "160px" },
                   "&:hover": {
                     backgroundColor: "#f2f2f2",
                   },
@@ -206,7 +206,7 @@ export default function AppBar() {
                 size="medium"
                 onClick={() => navigate("/login")}
               >
-                Login
+                {t("login")}
               </Button>
 
               <CartButtonWithArticlesCount

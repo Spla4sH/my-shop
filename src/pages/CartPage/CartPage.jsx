@@ -256,8 +256,7 @@ const CartPage = () => {
             <Table>
               <TableHead>
                 <Typography sx={{ fontWeight: "bold", fontSize: "5rem" }}>
-                  {" "}
-                  Warenkorb{" "}
+                  {t("cart")}
                 </Typography>
                 <TableRow>
                   <TableCell>

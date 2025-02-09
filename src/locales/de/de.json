@@ -25,5 +25,7 @@
   "search": "Suche Artikel",
   "all-articles": "Alle Artikel",
   "delete-article-tt": "Artikel vom Warenkorb entfernen",
-  "checkout": "Zur Kasse gehen"
+  "checkout": "Zur Kasse gehen",
+  "login": "Anmelden",
+  "sign-up": "Registrieren"
 }

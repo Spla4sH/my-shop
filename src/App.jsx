@@ -16,6 +16,7 @@ import i18n from "./i18n/i18n";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import LoginPage from "./pages/LoginPage/Loginpage";
 import SignUpPage from "./pages/SingupPage/SingupPage";
+import BackToTop from "./components/BackToTop/BackToTop";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
               minHeight: "100vh",
             }}
           >
+            <BackToTop />
             <CssBaseline />
             <Router basename="/">
               <AppBar />

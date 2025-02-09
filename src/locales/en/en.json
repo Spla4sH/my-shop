@@ -25,5 +25,7 @@
   "search": "Search",
   "all-articles": "All Articles",
   "delete-article-tt": "Remove article from cart",
-  "checkout": "Checkout"
+  "checkout": "Checkout",
+  "login": "Login",
+  "sign-up": "Sign Up"
 }
