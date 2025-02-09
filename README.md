@@ -47,7 +47,7 @@ npm -v
    npm install
    ```
 
-## Running the Development Server
+## Running the Development Server and Backend Server
 
 To start the development server:
 
@@ -65,14 +65,15 @@ Here is a basic overview of the project structure:
 
 ```
 project-root/
-├── public/               # Static assets (e.g., images, favicon)
 ├── src/                  # Source code
 │   ├── api/              # API endpoints
 │   ├── assets/           # static assets
 │   ├── components/       # Reusable React components
-│   ├── db/               # Database mock for testing
-│   ├── pages/            # Page components
-│   ├── theme/            # Theme
+│   ├── i18n/             # Internationalization Framework
+│   ├── locales/          # Translations for de/en/fr
+│   ├── pages/            # Pages which are displayed on the website
+│   ├── store/            # Redux store for global State Management
+│   ├── theme/            # Theme used for App.jsx
 │   ├── App.css           # Global style
 │   ├── App.jsx           # Main application component
 │   ├── index.css         # Global style
