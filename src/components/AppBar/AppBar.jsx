@@ -1,30 +1,29 @@
-import MenuIcon from "@mui/icons-material/Menu";
+import * as React from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
+  AppBar as MuiAppBar,
+  Toolbar,
+  Typography,
   Button,
   Drawer,
-  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  AppBar as MuiAppBar,
+  IconButton,
   Slide,
-  Toolbar,
-  Typography,
   useScrollTrigger,
 } from "@mui/material";
-import * as React from "react";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
-import { getCategories } from "../../api";
+import MenuIcon from "@mui/icons-material/Menu";
 import shopIcon from "../../assets/icons/icons8-shopee-100.png";
-import ArticleSearch from "../ArticleSearch/ArticleSearch";
-import CartButtonWithArticlesCount from "../CartButtonWithArticlesCount/CartButtonWithArticlesCount";
+import { useNavigate, useLocation } from "react-router-dom";
 import LanguageButton from "../LanguageButton/LanguageButton";
+import ArticleSearch from "../ArticleSearch/ArticleSearch";
+import { getCategories } from "../../api";
+import { useTranslation } from "react-i18next";
+import CartButtonWithArticlesCount from "../CartButtonWithArticlesCount/CartButtonWithArticlesCount";
 
-// Funktion, um die AppBar beim Scrollen auszublenden
 function HideOnScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -44,12 +43,10 @@ export default function AppBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [registeredUser, setRegisteredUser] = useState(false);
 
-  // Funktion zum Umschalten des mobilen Menüs
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
   };
 
-  // Funktion zum Navigieren zu einer Kategorie
   function handleCategoryClick(categoryId) {
     if (categoryId === "all") {
       navigate("/articles");
@@ -60,7 +57,6 @@ export default function AppBar() {
     setMobileOpen(false);
   }
 
-  // Hole Kategorien aus der API
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -74,16 +70,18 @@ export default function AppBar() {
     fetchCategories();
   }, []);
 
-  // Aktualisiere die Kategorienliste, um "Alle Artikel" hinzuzufügen
   useEffect(() => {
+    // Erstes Element hinzufügen: "Alle Artikel"
+    // Dann die vorhandenen Kategorien aus "categories" übernehmen
     const updatedCategories = [
       { _id: "all", name: "Alle Artikel" },
       ...categories,
     ];
+
+    // Die neue Liste setzen
     setCategoriesList(updatedCategories);
   }, [categories]);
 
-  // Überprüfe, ob der Benutzer registriert ist
   useEffect(() => {
     console.log("test");
     console.log(registeredUser);
@@ -94,7 +92,6 @@ export default function AppBar() {
       console.log("xxxx:", registered);
     }
   }, []);
-
   // Inhalt des Drawers (Burger-Menü) für mobile Ansichten
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ width: 250 }}>

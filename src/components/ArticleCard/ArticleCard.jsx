@@ -1,17 +1,17 @@
 import {
-  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Typography,
+  Box, // NEU: Box importiert für zusätzlichen Wrapper
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { useTranslation } from "react-i18next";
 import { addToCart } from "../../store/articleSlice";
+import { useTranslation } from "react-i18next";
 
 function ArticleCard({ article }) {
   const { t } = useTranslation();

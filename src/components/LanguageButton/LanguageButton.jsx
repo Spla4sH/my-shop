@@ -1,18 +1,18 @@
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import LanguageIcon from "@mui/icons-material/Language";
+import React, { useState } from "react";
 import {
   Box,
   Button,
-  IconButton,
   Menu,
   MenuItem,
   Typography,
+  IconButton,
 } from "@mui/material";
-import React, { useState } from "react";
+import LanguageIcon from "@mui/icons-material/Language";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useTranslation } from "react-i18next";
+import flagEn from "../../assets/flags/gb.png";
 import flagDe from "../../assets/flags/de.png";
 import flagFr from "../../assets/flags/fr.png";
-import flagEn from "../../assets/flags/gb.png";
 
 const LANGUAGES = [
   { code: "en", name: "English", img: flagEn },

@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { postLogin, postSignup } from "../../api";
 
+// Die SignUpPage-Komponente ermöglicht es neuen Nutzern, sich zu registrieren
 const SignUpPage = () => {
-  // Initialisieren der Formular-Daten
+  // Initialisieren der Formular-Daten mit useState.
+  // Alle Felder (Vorname, Nachname, Adresse, usw.) werden in einem Objekt gesammelt.
   const [userData, setUserData] = useState({
     firstname: "",
     lastname: "",
@@ -18,9 +20,11 @@ const SignUpPage = () => {
     password: "",
   });
 
+  // useTranslation liefert die Übersetzungsfunktion t.
   const { t } = useTranslation();
 
-  // Handler, der alle Änderungen in den Eingabefeldern verarbeitet
+  // Handler, der alle Änderungen in den Eingabefeldern verarbeitet.
+  // Er ermittelt das name-Attribut des Feldes und aktualisiert den entsprechenden Wert in userData.
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevData) => ({
@@ -29,42 +33,50 @@ const SignUpPage = () => {
     }));
   };
 
-  // Handler für das Absenden des Formulars
+  // Handler für das Absenden des Formulars.
+  // Er verhindert das Standardverhalten des Formulars und startet den Registrierungsvorgang.
   const handleSignUp = (event) => {
     event.preventDefault();
     console.log("Formulardaten:", userData);
 
-    // Starte den Signup-Prozess
+    // Der Signup-Prozess wird gestartet, indem postSignup aufgerufen wird.
     postSignup(userData)
       .then((signupResponse) => {
         console.log(signupResponse);
+        // Bei erfolgreicher Registrierung wird im localStorage vermerkt, dass der Nutzer registriert wurde.
         localStorage.setItem("registeredUser", "true");
-        // Nach erfolgreichem Signup, führe den Login aus
-        return postLogin(userData); // Hier evtl. andere Daten oder Token verwenden
+        // Anschließend wird der Login-Prozess gestartet.
+        // Hier wird postLogin mit den gleichen Nutzerdaten aufgerufen (dies kann angepasst werden, um z.B. einen Token zu erhalten).
+        return postLogin(userData);
       })
       .then((loginResponse) => {
         console.log("Login erfolgreich:", loginResponse);
-
-        // Hier kannst du weitere Aktionen nach dem Login durchführen
+        // Nach einem erfolgreichen Login können weitere Aktionen durchgeführt werden,
+        // wie z.B. das Navigieren zu einer anderen Seite oder das Speichern des Tokens.
       })
       .catch((error) => {
+        // Fehler während Signup oder Login werden in der Konsole angezeigt.
         console.error("Fehler beim Signup oder Login:", error);
       })
       .finally(() => {
         console.log("Signup- und Login-Prozess abgeschlossen.");
-        // Hier kannst du abschließende Aktionen vornehmen, z.B. das UI aktualisieren
+        // Hier könnten abschließende Aktionen vorgenommen werden, wie das Aktualisieren des UI.
       });
   };
 
+  // Rendern des Formulars in einem Container, der als Paper dargestellt wird.
+  // Der Container wird zentriert und hat einen oberen Margin von 200px.
   return (
     <Container
       component={Paper}
       sx={{ marginTop: "200px", padding: 3 }}
       maxWidth="sm"
     >
+      {/* Überschrift, die den Nutzer zur Registrierung auffordert */}
       <Typography variant="h4" component="h1" gutterBottom>
         {t("sign-up")}
       </Typography>
+      {/* Formular, das den handleSignUp-Handler beim Absenden aufruft */}
       <form onSubmit={handleSignUp}>
         <Grid container spacing={2}>
           {/* Vorname */}

@@ -1,10 +1,10 @@
-import SearchIcon from "@mui/icons-material/Search";
-import { Button, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { TextField, Button } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
 import { setSearchText } from "../../store/articleSlice";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Search = () => {
   const { t } = useTranslation();

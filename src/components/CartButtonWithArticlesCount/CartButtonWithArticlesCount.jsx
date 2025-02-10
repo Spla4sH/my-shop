@@ -1,10 +1,10 @@
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
-import Badge, { badgeClasses } from "@mui/material/Badge";
-import IconButton from "@mui/material/IconButton";
-import { styled } from "@mui/material/styles";
 import * as React from "react";
-import { useSelector } from "react-redux";
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import Badge, { badgeClasses } from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {

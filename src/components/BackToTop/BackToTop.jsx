@@ -1,7 +1,7 @@
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { Fab, Zoom, useScrollTrigger } from "@mui/material";
-import PropTypes from "prop-types";
 import React from "react";
+import PropTypes from "prop-types";
+import { Zoom, useScrollTrigger, Fab } from "@mui/material";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 function ScrollTop(props) {
   const { children, window } = props;
