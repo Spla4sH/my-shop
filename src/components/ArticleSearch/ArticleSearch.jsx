@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { TextField, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { useDispatch, useSelector } from "react-redux";
-import { setSearchText } from "../../store/articleSlice";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { setSearchText } from "../../store/articleSlice";
 
 const Search = () => {
   const { t } = useTranslation();
@@ -85,7 +85,7 @@ const Search = () => {
         onClick={handleSearchButtonClick}
         sx={{
           marginLeft: "0px",
-          backgroundColor: "secondary.main",
+          backgroundColor: "orange",
           height: { xs: "40px", md: "50px" },
           minWidth: 0,
           width: { xs: "50px", md: "60px" },
@@ -98,7 +98,10 @@ const Search = () => {
           },
         }}
       >
-        <SearchIcon color="primary" sx={{fontSize: { xs: "25px", md: "30px" }}}/>
+        <SearchIcon
+          color="primary"
+          sx={{ fontSize: { xs: "25px", md: "30px" } }}
+        />
       </Button>
     </>
   );

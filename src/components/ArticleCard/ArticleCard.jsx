@@ -1,17 +1,17 @@
 import {
+  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Typography,
-  Box, // NEU: Box importiert für zusätzlichen Wrapper
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import cardImgPlaceholder from "../../assets/images/card-img-placeholder.png";
-import { addToCart } from "../../store/articleSlice";
+
 import { useTranslation } from "react-i18next";
+import { addToCart } from "../../store/articleSlice";
 
 function ArticleCard({ article }) {
   const { t } = useTranslation();
@@ -30,7 +30,7 @@ function ArticleCard({ article }) {
   return (
     <Card
       sx={{
-        width: { xs: "75%", md: "25%" },
+        width: { xs: "75%", md: "20%" },
         height: "320px",
         cursor: "pointer",
         boxShadow: 0,
@@ -52,7 +52,7 @@ function ArticleCard({ article }) {
         }}
         component="img"
         height="55%"
-        image={article.href.replace("3005", "3030") || cardImgPlaceholder}
+        image={article.href.replace("3005", "3030")}
         alt={article.name}
       />
 

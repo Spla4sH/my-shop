@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Zoom, useScrollTrigger, Fab } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Fab, Zoom, useScrollTrigger } from "@mui/material";
+import PropTypes from "prop-types";
+import React from "react";
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -56,11 +56,13 @@ export default function BackToTop(props) {
           sx={{
             bgcolor: "orange", // Hintergrundfarbe
             color: "white", // Text-/Icon-Farbe
+            marginBottom: "70px",
+            zIndex: 100,
             "&:hover": {
               bgcolor: "darkorange", // Hover-Farbe
             },
           }}
-          size="small"
+          size="big"
           aria-label="scroll back to top"
         >
           <KeyboardArrowUpIcon />

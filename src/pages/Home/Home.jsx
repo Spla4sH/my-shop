@@ -1,9 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { getArticles } from "../../api";
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
-import { useTranslation } from "react-i18next";
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
 
 function Home() {
   const { t, i18n } = useTranslation();
@@ -103,7 +102,6 @@ function Home() {
               ? t("all-articles-shown")
               : t("show-more-articles")}
           </Button>
-          <ScrollUpButton showButton={allArticlesVisible} />
         </Box>
       </Box>
     )

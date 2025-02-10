@@ -5,18 +5,18 @@ import { Provider } from "react-redux";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import AppBar from "./components/AppBar/AppBar";
+import BackToTop from "./components/BackToTop/BackToTop";
 import Footer from "./components/Footer/Footer";
+import i18n from "./i18n/i18n";
 import AllArticlesPage from "./pages/AllArticlesPage/AllArticlesPage";
 import ArticleDetailPage from "./pages/ArticleDetailPage/ArticleDetailPage";
 import CartPage from "./pages/CartPage/CartPage";
+import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import Home from "./pages/Home/Home";
+import LoginPage from "./pages/LoginPage/Loginpage";
+import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import store from "./store/store";
 import theme from "./theme/theme";
-import i18n from "./i18n/i18n";
-import CategoryPage from "./pages/CategoryPage/CategoryPage";
-import LoginPage from "./pages/LoginPage/Loginpage";
-import SignUpPage from "./pages/SingupPage/SingupPage";
-import BackToTop from "./components/BackToTop/BackToTop";
 
 function App() {
   return (

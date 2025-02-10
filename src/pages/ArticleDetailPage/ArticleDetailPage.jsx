@@ -16,10 +16,10 @@ import {
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import cardImgPlaceholder from "../../assets/images/card-img-placeholder.png";
-import { addToCart } from "../../store/articleSlice";
-import { getArticleById } from "../../api";
+
 import { useTranslation } from "react-i18next";
+import { getArticleById } from "../../api";
+import { addToCart } from "../../store/articleSlice";
 
 function ArticleDetailPage() {
   const { t } = useTranslation();
@@ -66,7 +66,7 @@ function ArticleDetailPage() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "69vh",
+            height: "40vh",
           }}
         >
           <CircularProgress />
@@ -78,7 +78,8 @@ function ArticleDetailPage() {
       ) : article ? (
         <Card
           sx={{
-            maxWidth: 1000,
+            width: { xs: "95%", md: "80%" },
+            height: "auto",
             margin: "auto",
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
@@ -94,7 +95,7 @@ function ArticleDetailPage() {
               objectFit: "contain",
               height: { xs: 200, md: "auto" },
             }}
-            image={article.href.replace("3005", "3030") || cardImgPlaceholder}
+            image={article.href.replace("3005", "3030")}
             alt={article.name}
           />
 
@@ -128,9 +129,6 @@ function ArticleDetailPage() {
                 {article.description}
               </Typography>
 
-              <Typography variant="body2" sx={{ mb: 1 }}>
-                {t("category")}: {article.categoryId}
-              </Typography>
               <Typography
                 variant="body1"
                 sx={{ mt: 2, color: article.quantity > 0 ? "green" : "orange" }}

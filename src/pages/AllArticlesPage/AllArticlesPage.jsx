@@ -2,12 +2,11 @@ import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { Toolbar } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { getArticles } from "../../api";
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
 import { setSearchText } from "../../store/articleSlice";
-import { Toolbar } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
 
 function AllArticlesPage() {
   const { t } = useTranslation();
@@ -115,7 +114,6 @@ function AllArticlesPage() {
             {filteredArticles.map((article) => (
               <ArticleCard key={article._id} article={article} />
             ))}
-            {filteredArticles.length > 8 && <ScrollUpButton />}
           </>
         ) : (
           <Box

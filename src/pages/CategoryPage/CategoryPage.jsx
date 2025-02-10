@@ -7,7 +7,7 @@ import ArticleCard from "../../components/ArticleCard/ArticleCard";
 import { setSearchText } from "../../store/articleSlice";
 
 import { useTranslation } from "react-i18next";
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
+
 import { useParams } from "react-router-dom";
 
 function CategoryPage() {

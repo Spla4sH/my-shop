@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Container, Grid, TextField, Button } from "@mui/material";
+import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { postSignup, postLogin } from "../../api";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { postLogin, postSignup } from "../../api";
 
 const SignUpPage = () => {
   // Initialisieren der Formular-Daten
@@ -16,6 +17,8 @@ const SignUpPage = () => {
     email: "",
     password: "",
   });
+
+  const { t } = useTranslation();
 
   // Handler, der alle Änderungen in den Eingabefeldern verarbeitet
   const handleChange = (event) => {
@@ -35,6 +38,7 @@ const SignUpPage = () => {
     postSignup(userData)
       .then((signupResponse) => {
         console.log(signupResponse);
+        localStorage.setItem("registeredUser", "true");
         // Nach erfolgreichem Signup, führe den Login aus
         return postLogin(userData); // Hier evtl. andere Daten oder Token verwenden
       })
@@ -58,6 +62,9 @@ const SignUpPage = () => {
       sx={{ marginTop: "200px", padding: 3 }}
       maxWidth="sm"
     >
+      <Typography variant="h4" component="h1" gutterBottom>
+        {t("sign-up")}
+      </Typography>
       <form onSubmit={handleSignUp}>
         <Grid container spacing={2}>
           {/* Vorname */}
@@ -173,7 +180,7 @@ const SignUpPage = () => {
           {/* Absende-Button */}
           <Grid item xs={12}>
             <Button variant="contained" type="submit" color="primary" fullWidth>
-              Registrieren
+              {t("sign-up")}
             </Button>
           </Grid>
         </Grid>

@@ -1,5 +1,5 @@
+import { Box, Typography } from "@mui/material";
 import React from "react";
-import { Box, Typography, Link } from "@mui/material";
 
 function Footer() {
   return (
@@ -12,17 +12,14 @@ function Footer() {
         backgroundColor: "primary.dark",
         color: "#fff",
         padding: "20px",
-        mt: 4,
+        mt: 1,
         position: "relative",
         bottom: 0,
         width: "100%",
       }}
     >
-      <Typography
-        variant="body2"
-        sx={{ textAlign: "center", fontWeight: 300, marginTop: 4 }}
-      >
-        &copy; {new Date().getFullYear()} Sebastian Rösch - WebShop. All rights
+      <Typography variant="body2" sx={{ textAlign: "center", fontWeight: 300 }}>
+        &copy; {new Date().getFullYear()} Sebastian Rösch - My Shop. All rights
         reserved.
       </Typography>
     </Box>

@@ -1,29 +1,30 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
 import {
   Box,
-  AppBar as MuiAppBar,
-  Toolbar,
-  Typography,
   Button,
   Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  IconButton,
+  AppBar as MuiAppBar,
   Slide,
+  Toolbar,
+  Typography,
   useScrollTrigger,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import shopIcon from "../../assets/icons/icons8-shopee-100.png";
-import { useNavigate, useLocation } from "react-router-dom";
-import LanguageButton from "../LanguageButton/LanguageButton";
-import ArticleSearch from "../ArticleSearch/ArticleSearch";
-import { getCategories } from "../../api";
+import * as React from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getCategories } from "../../api";
+import shopIcon from "../../assets/icons/icons8-shopee-100.png";
+import ArticleSearch from "../ArticleSearch/ArticleSearch";
 import CartButtonWithArticlesCount from "../CartButtonWithArticlesCount/CartButtonWithArticlesCount";
+import LanguageButton from "../LanguageButton/LanguageButton";
 
+// Funktion, um die AppBar beim Scrollen auszublenden
 function HideOnScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -41,11 +42,14 @@ export default function AppBar() {
   const [categories, setCategories] = useState([]);
   const [categoriesList, setCategoriesList] = useState([]);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [registeredUser, setRegisteredUser] = useState(false);
 
+  // Funktion zum Umschalten des mobilen Menüs
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
   };
 
+  // Funktion zum Navigieren zu einer Kategorie
   function handleCategoryClick(categoryId) {
     if (categoryId === "all") {
       navigate("/articles");
@@ -56,6 +60,7 @@ export default function AppBar() {
     setMobileOpen(false);
   }
 
+  // Hole Kategorien aus der API
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -69,17 +74,26 @@ export default function AppBar() {
     fetchCategories();
   }, []);
 
+  // Aktualisiere die Kategorienliste, um "Alle Artikel" hinzuzufügen
   useEffect(() => {
-    // Erstes Element hinzufügen: "Alle Artikel"
-    // Dann die vorhandenen Kategorien aus "categories" übernehmen
     const updatedCategories = [
       { _id: "all", name: "Alle Artikel" },
       ...categories,
     ];
-
-    // Die neue Liste setzen
     setCategoriesList(updatedCategories);
   }, [categories]);
+
+  // Überprüfe, ob der Benutzer registriert ist
+  useEffect(() => {
+    console.log("test");
+    console.log(registeredUser);
+    const registered = localStorage.getItem("registeredUser");
+    console.log("registered:", registered);
+    if (registered) {
+      setRegisteredUser(true);
+      console.log("xxxx:", registered);
+    }
+  }, []);
 
   // Inhalt des Drawers (Burger-Menü) für mobile Ansichten
   const drawer = (
@@ -165,27 +179,29 @@ export default function AppBar() {
               }}
             >
               <LanguageButton />
-              <Button
-                sx={{
-                  backgroundColor: "#FF9900", // Amazon Orange
-                  color: "#fff",
-                  padding: { xs: "8px 12px", sm: "10px 20px" },
-                  margin: "5px",
-                  borderRadius: "4px",
-                  fontWeight: "bold",
-                  textTransform: "none",
-                  boxShadow: "none",
-                  width: { xs: "130px", sm: "160px" },
-                  "&:hover": {
-                    backgroundColor: "#e88b00",
-                  },
-                }}
-                variant="contained"
-                size="medium"
-                onClick={() => navigate("/signup")}
-              >
-                {t("sign-up")}
-              </Button>
+              {!registeredUser && (
+                <Button
+                  sx={{
+                    backgroundColor: "#FF9900", // Amazon Orange
+                    color: "#fff",
+                    padding: { xs: "8px 12px", sm: "10px 20px" },
+                    margin: "5px",
+                    borderRadius: "4px",
+                    fontWeight: "bold",
+                    textTransform: "none",
+                    boxShadow: "none",
+                    width: { xs: "130px", sm: "160px" },
+                    "&:hover": {
+                      backgroundColor: "#e88b00",
+                    },
+                  }}
+                  variant="contained"
+                  size="medium"
+                  onClick={() => navigate("/signup")}
+                >
+                  {t("sign-up")}
+                </Button>
+              )}
               <Button
                 sx={{
                   backgroundColor: "#fff",

@@ -11,10 +11,12 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
   Tooltip,
+  Typography,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getArticles } from "../../api";
@@ -24,8 +26,6 @@ import {
   reduceQuantityOfArticleInCart,
   removeArticleFromCart,
 } from "../../store/articleSlice";
-import { useTranslation } from "react-i18next";
-import { alpha } from "@mui/material/styles";
 
 const CartPage = () => {
   const { t } = useTranslation();

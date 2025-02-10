@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import de from "../locales/de/de.json";
 import en from "../locales/en/en.json";
 import fr from "../locales/fr/fr.json";
-import de from "../locales/de/de.json";
 
 i18n.use(initReactI18next).init({
   resources: {

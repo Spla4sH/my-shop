@@ -36,7 +36,7 @@ npm -v
 2. Navigate to the project directory:
 
    ```bash
-   cd web-shop-main
+   cd my-shop-main
    ```
 
 3. Install dependencies:
@@ -58,6 +58,12 @@ npm run dev
 ```
 
 This will launch the app in your default web browser. By default, it runs on `http://localhost:5173`.
+
+To start the Backend Server:
+
+```bash
+node app.js "shop"
+```
 
 ## Folder Structure
 
