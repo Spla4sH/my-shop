@@ -77,7 +77,7 @@ project-root/
 │   ├── components/       # Reusable React components
 │   ├── i18n/             # Internationalization Framework
 │   ├── locales/          # Translations for de/en/fr
-│   ├── pages/            # Pages which are displayed on the website
+│   ├── pages/            # Pages which are displayed on thewebsite
 │   ├── store/            # Redux store for global State Management
 │   ├── theme/            # Theme used for App.jsx
 │   ├── App.css           # Global style

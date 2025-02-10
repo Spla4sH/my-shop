@@ -134,8 +134,6 @@ function CategoryPage() {
           {filteredArticles.map((article) => (
             <ArticleCard key={article._id} article={article} /> // Jede ArticleCard erhält den Artikel als Prop
           ))}
-          {/* Optional: Wenn es mehr als 8 Artikel gibt, wird ein "ScrollUpButton" angezeigt */}
-          {filteredArticles.length > 8 && <ScrollUpButton />}
         </>
       ) : (
         // Falls durch den Suchtext keine Artikel gefunden werden, wird ein Hinweis mit einem Reset-Button angezeigt.
