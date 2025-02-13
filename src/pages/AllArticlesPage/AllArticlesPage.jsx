@@ -5,13 +5,12 @@ import {
   Typography,
   Toolbar,
 } from "@mui/material";
-import { useEffect, useState } from "react"; // React-Hooks für Nebenwirkungen (useEffect) und lokalen Zustand (useState)
-import { useDispatch, useSelector } from "react-redux"; // Redux-Hooks zur Interaktion mit dem globalen Store
-import { useTranslation } from "react-i18next"; // Hook für Internationalisierung (Übersetzungen)
-import { getArticles } from "../../api"; // API-Funktion zum Abrufen der Artikel
-import ArticleCard from "../../components/ArticleCard/ArticleCard"; // Komponente zur Darstellung eines einzelnen Artikels
-import { setSearchText } from "../../store/articleSlice"; // Aktion aus dem ArticleSlice, um den Suchtext im Store zu setzen
-
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { getArticles } from "../../api";
+import ArticleCard from "../../components/ArticleCard/ArticleCard";
+import { setSearchText } from "../../store/articleSlice";
 // Definiert die Komponente für die Seite, auf der alle Artikel angezeigt werden
 function AllArticlesPage() {
   const { t } = useTranslation(); // Holt die Übersetzungsfunktion, die Texte in der gewählten Sprache zurückgibt

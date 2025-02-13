@@ -12,7 +12,9 @@ import {
   MenuItem,
   Select,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -30,6 +32,9 @@ function ArticleDetailPage() {
 
   // Holt die articleId aus den URL-Parametern
   const { articleId } = useParams();
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // useEffect: Lädt den Artikel, sobald sich die articleId ändert oder beim initialen Rendern
   useEffect(() => {
@@ -136,7 +141,9 @@ function ArticleDetailPage() {
               </Typography>
               {/* Beschreibung des Artikels */}
               <Typography variant="body1" sx={{ mb: 1 }}>
-                {article.description}
+                {isMobile && article.description
+                  ? article.description.substring(0, 100) + "..."
+                  : article.description}
               </Typography>
               {/* Anzeige der Verfügbarkeit: Grüne Farbe, wenn verfügbar; Orange, wenn nicht */}
               <Typography

@@ -5,6 +5,7 @@ import Badge, { badgeClasses } from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ColorLensOutlined } from "@mui/icons-material";
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -22,7 +23,7 @@ export default function CartButtonWithArticlesCount({ color }) {
   return (
     <IconButton onClick={() => navigate("/cart")} sx={{ marginX: 1 }}>
       <ShoppingCartIcon
-        sx={{ color: color, fontSize: { xs: "24px", lg: "28px" } }}
+        sx={{ color: "yellow", fontSize: { xs: "24px", lg: "28px" } }}
       />
       <CartBadge
         sx={{ color: "orange" }}
