@@ -46,9 +46,7 @@ const LoginPage = () => {
       {/* Box, die den Inhalt (Formular) vertikal anordnet und zentriert */}
       <Box display="flex" flexDirection="column" alignItems="center" mt={8}>
         {/* Überschrift für die Login-Seite */}
-        <Typography variant="h4" component="h1" gutterBottom>
-          Login
-        </Typography>
+        <Typography variant="h4">Login</Typography>
         {/* Formular, das beim Absenden die handleLogin-Funktion ausführt */}
         <Box component="form" onSubmit={handleLogin} sx={{ width: "100%" }}>
           {/* TextField für die Eingabe der Email-Adresse */}

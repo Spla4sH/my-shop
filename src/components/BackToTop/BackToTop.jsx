@@ -12,7 +12,7 @@ function ScrollTop(props) {
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: true,
-    threshold: 100, // Schwellenwert in Pixeln
+    threshold: 100,
   });
 
   const handleClick = (event) => {

@@ -70,9 +70,7 @@ const SignUpPage = () => {
       maxWidth="sm"
     >
       {/* Überschrift, die den Nutzer zur Registrierung auffordert */}
-      <Typography variant="h4" component="h1" gutterBottom>
-        {t("sign-up")}
-      </Typography>
+      <Typography variant="h4">{t("sign-up")}</Typography>
       {/* Formular, das den handleSignUp-Handler beim Absenden aufruft */}
       <form onSubmit={handleSignUp}>
         <Grid container spacing={2}>

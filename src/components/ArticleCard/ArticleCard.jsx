@@ -42,11 +42,8 @@ function ArticleCard({ article }) {
     >
       <CardMedia
         sx={{
-          // Damit das Bild nicht beschnitten wird:
           objectFit: "contain",
-          // Container soll ein Quadrat sein:
           aspectRatio: "1 / 1",
-          // Passt das Bild proportional an die Breite an:
           width: "100%",
         }}
         component="img"

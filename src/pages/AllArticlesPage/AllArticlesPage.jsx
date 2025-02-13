@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import { getArticles } from "../../api";
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
 import { setSearchText } from "../../store/articleSlice";
-// Definiert die Komponente für die Seite, auf der alle Artikel angezeigt werden
+
 function AllArticlesPage() {
   const { t } = useTranslation(); // Holt die Übersetzungsfunktion, die Texte in der gewählten Sprache zurückgibt
   const dispatch = useDispatch(); // Hook, um Aktionen an den Redux-Store zu senden
