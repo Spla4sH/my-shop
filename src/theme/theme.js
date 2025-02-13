@@ -1,32 +1,31 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
-// Define a custom theme
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#232f3e', // Custom primary color
+      main: "#232f3e",
     },
     secondary: {
-      main: '#dbb1f2', // Custom secondary color
+      main: "#dbb1f2",
     },
     background: {
-      default: '#E3E6E6', // Background color for the whole app
+      default: "#E3E6E6", // Hintergrundfarbe für die ganze App
     },
     text: {
-      primary: '#333', // Primary text color
+      primary: "#333",
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', // Custom font family
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', // Font family
     h1: {
-      fontSize: '3rem', // Customize h1 style
-      fontWeight: 'bold',
+      fontSize: "3rem",
+      fontWeight: "bold",
     },
     h6: {
-      fontSize: '1.25rem', // Customize h6 style
+      fontSize: "1.25rem",
     },
   },
-  spacing: 8, // Set a global spacing scale
+  spacing: 8,
 });
 
 export default theme;
