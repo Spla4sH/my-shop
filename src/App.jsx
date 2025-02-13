@@ -13,7 +13,7 @@ import ArticleDetailPage from "./pages/ArticleDetailPage/ArticleDetailPage";
 import CartPage from "./pages/CartPage/CartPage";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import Home from "./pages/Home/Home";
-import LoginPage from "./pages/LoginPage/Loginpage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import store from "./store/store";
 import theme from "./theme/theme";
