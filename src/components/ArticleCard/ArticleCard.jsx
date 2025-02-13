@@ -5,7 +5,7 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Box, // NEU: Box importiert für zusätzlichen Wrapper
+  Box,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +38,6 @@ function ArticleCard({ article }) {
         m: 1,
         display: "flex",
         flexDirection: "column",
-        // Entferne justifyContent: "space-between" um eine eigene Zentrierung zu ermöglichen
       }}
     >
       <CardMedia
@@ -54,16 +53,17 @@ function ArticleCard({ article }) {
         height="55%"
         image={article.href.replace("3005", "3030")}
         alt={article.name}
+        onClick={handleViewDetails}
       />
 
-      {/* NEU: Wrapper-Box für zentrierten Inhalt und Buttons */}
+      {/* Wrapper-Box für zentrierten Inhalt und Buttons */}
       <Box
         sx={{
-          flexGrow: 1, // Nimmt den übrigen Platz ein
+          flexGrow: 1,
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center", // Vertikale Zentrierung
-          alignItems: "center", // Horizontale Zentrierung
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <CardContent sx={{ textAlign: "center", m: 0, p: 0 }}>
@@ -81,9 +81,9 @@ function ArticleCard({ article }) {
         <CardActions
           sx={{
             display: "flex",
-            justifyContent: "center", // GEÄNDERT: Von "end" zu "center"
-            alignItems: "center", // NEU: Sorgt für horizontale Zentrierung
-            gap: 1, // NEU: Abstand zwischen den Buttons
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 1,
           }}
         >
           <Button variant="outlined" size="small" onClick={handleViewDetails}>

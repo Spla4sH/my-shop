@@ -179,7 +179,7 @@ export default function AppBar() {
               {!registeredUser && (
                 <Button
                   sx={{
-                    backgroundColor: "#FF9900", // Amazon Orange
+                    backgroundColor: "#FF9900",
                     color: "#fff",
                     padding: { xs: "8px 12px", sm: "10px 20px" },
                     margin: "5px",
@@ -283,7 +283,7 @@ export default function AppBar() {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // verbessert die Leistung bei mobilen Geräten
+          keepMounted: true,
         }}
       >
         {drawer}

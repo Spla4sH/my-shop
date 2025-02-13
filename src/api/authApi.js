@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// Replace with your actual API base URL
 const BASE_URL = "http://localhost:3030";
 
 export const postLogin = async (userData) => {

@@ -57,7 +57,6 @@ const LanguageButton = () => {
           fontSize: "18px",
           fontWeight: 700,
         }}
-        // startIcon={<LanguageIcon />}
         startIcon={
           <img
             src={LANGUAGES.find((lang) => lang.code === currentLanguage)?.img}
@@ -99,7 +98,7 @@ const LanguageButton = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              gap: "10px", // Space between flag and text
+              gap: "10px",
             }}
           >
             <img

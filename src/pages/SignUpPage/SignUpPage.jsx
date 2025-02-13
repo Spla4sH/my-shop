@@ -46,13 +46,11 @@ const SignUpPage = () => {
         // Bei erfolgreicher Registrierung wird im localStorage vermerkt, dass der Nutzer registriert wurde.
         localStorage.setItem("registeredUser", "true");
         // Anschließend wird der Login-Prozess gestartet.
-        // Hier wird postLogin mit den gleichen Nutzerdaten aufgerufen (dies kann angepasst werden, um z.B. einen Token zu erhalten).
+        // Hier wird postLogin mit den gleichen Nutzerdaten aufgerufen.
         return postLogin(userData);
       })
       .then((loginResponse) => {
         console.log("Login erfolgreich:", loginResponse);
-        // Nach einem erfolgreichen Login können weitere Aktionen durchgeführt werden,
-        // wie z.B. das Navigieren zu einer anderen Seite oder das Speichern des Tokens.
       })
       .catch((error) => {
         // Fehler während Signup oder Login werden in der Konsole angezeigt.
@@ -60,12 +58,11 @@ const SignUpPage = () => {
       })
       .finally(() => {
         console.log("Signup- und Login-Prozess abgeschlossen.");
-        // Hier könnten abschließende Aktionen vorgenommen werden, wie das Aktualisieren des UI.
       });
   };
 
   // Rendern des Formulars in einem Container, der als Paper dargestellt wird.
-  // Der Container wird zentriert und hat einen oberen Margin von 200px.
+  // Der Container wird zentriert.
   return (
     <Container
       component={Paper}

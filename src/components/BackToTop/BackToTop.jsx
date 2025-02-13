@@ -1,3 +1,5 @@
+// Kommt von MaterialUI, um den Button "Nach oben" zu erstellen
+
 import React from "react";
 import PropTypes from "prop-types";
 import { Zoom, useScrollTrigger, Fab } from "@mui/material";
@@ -9,12 +11,12 @@ function ScrollTop(props) {
   // Der useScrollTrigger-Hook ermittelt, ob der User weit genug gescrollt hat.
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
-    disableHysteresis: true, // Sofortiges Reagieren ohne Verzögerung
+    disableHysteresis: true,
     threshold: 100, // Schwellenwert in Pixeln
   });
 
   const handleClick = (event) => {
-    // Sucht ein Element mit der ID "back-to-top-anchor" (muss im DOM vorhanden sein)
+    // Sucht ein Element mit der ID "back-to-top-anchor"
     const anchor = (event.target.ownerDocument || document).querySelector(
       "#back-to-top-anchor"
     );
@@ -54,12 +56,12 @@ export default function BackToTop(props) {
       <ScrollTop {...props}>
         <Fab
           sx={{
-            bgcolor: "orange", // Hintergrundfarbe
-            color: "white", // Text-/Icon-Farbe
+            bgcolor: "orange",
+            color: "white",
             marginBottom: "70px",
             zIndex: 100,
             "&:hover": {
-              bgcolor: "darkorange", // Hover-Farbe
+              bgcolor: "darkorange",
             },
           }}
           size="big"

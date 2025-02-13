@@ -1,13 +1,7 @@
 import axios from "axios";
 
-// Replace with your actual API base URL
 const BASE_URL = "http://localhost:3030/shop";
 
-/**
- * Fetch all articles.
- * @returns {Promise<Object[]>} List of articles.
- * @throws Will throw an error if the request fails.
- */
 export const getArticles = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/articles`);
@@ -22,12 +16,6 @@ export const getArticles = async () => {
   }
 };
 
-/**
- * Fetch a single article by ID.
- * @param {number|string} id - The ID of the article to fetch.
- * @returns {Promise<Object>} The article data.
- * @throws Will throw an error if the request fails or the article is not found.
- */
 export const getArticleById = async (id) => {
   if (!id) {
     throw new Error("Article ID is required to fetch article details.");

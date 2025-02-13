@@ -1,18 +1,10 @@
-// Importiere benötigte Material-UI-Komponenten
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
-// Importiere React und Hooks für Nebenwirkungen und lokalen Zustand
 import { useEffect, useState } from "react";
-// Importiere Redux-Hooks zum Zugriff auf den globalen Store und zum Versenden von Aktionen
 import { useDispatch, useSelector } from "react-redux";
-// Importiere die API-Funktion zum Laden von Artikeln für eine bestimmte Kategorie
 import { getArticlesByCategory } from "../../api";
-// Importiere die Komponente zur Darstellung einzelner Artikel
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
-// Importiere die Redux-Aktion zum Setzen des Suchtextes
 import { setSearchText } from "../../store/articleSlice";
-// Importiere den Übersetzungshook für mehrsprachige Texte
 import { useTranslation } from "react-i18next";
-// Importiere den Hook zum Auslesen von URL-Parametern (z.B. categoryId)
 import { useParams } from "react-router-dom";
 
 function CategoryPage() {
@@ -34,7 +26,7 @@ function CategoryPage() {
 
   // useEffect zum Laden der Artikel, sobald sich die categoryId ändert.
   useEffect(() => {
-    console.log("test:", categoryId); // Debug-Ausgabe der aktuellen categoryId.
+    console.log("test:", categoryId); // Debug Test
     const fetchArticles = async () => {
       try {
         // Setze den Ladezustand, bevor die API aufgerufen wird.
@@ -85,10 +77,10 @@ function CategoryPage() {
     return (
       <Box
         sx={{
-          display: "flex", // Flex-Layout zum Zentrieren
-          justifyContent: "center", // Zentriert horizontal
-          alignItems: "center", // Zentriert vertikal
-          flexDirection: "column", // Ordnet die Elemente untereinander an
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
         <CircularProgress /> {/* Ladeindikator */}
@@ -111,38 +103,35 @@ function CategoryPage() {
   return (
     <Box
       sx={{
-        // Beispielhafter Kommentar: Hinterlegte Hintergrundfarbe (ausgeblendet)
-        // backgroundColor: { xs: "red", lg: "green", xl: "yellow" },
-        marginY: 20, // Vertikaler Abstand
-        marginX: { xs: 1, lg: "120px", xl: "280px" }, // Horizontaler Abstand, abhängig von der Bildschirmgröße
-        display: "flex", // Flex-Layout zum Anordnen der Artikel
-        flexWrap: "wrap", // Erlaubt Zeilenumbrüche falls nicht genügend Platz vorhanden.
-        // Je nach Anzahl der gefilterten Artikel wird der Inhalt unterschiedlich justiert:
+        marginY: 20,
+        marginX: { xs: 1, lg: "120px", xl: "280px" },
+        display: "flex",
+        flexWrap: "wrap",
         justifyContent:
           filteredArticles.length <= 3 && filteredArticles.length > 0
             ? { xs: "center", md: "flex-start" }
             : "center",
-        alignItems: "center", // Zentriert die Artikel vertikal
-        rowGap: 5, // Abstand zwischen den Zeilen
-        columnGap: 1, // Abstand zwischen den Spalten
-        paddingTop: 5, // Abstand vom oberen Rand
+        alignItems: "center",
+        rowGap: 5,
+        columnGap: 1,
+        paddingTop: 5,
       }}
     >
       {/* Falls gefilterte Artikel vorhanden sind, werden diese gerendert */}
       {filteredArticles.length > 0 ? (
         <>
           {filteredArticles.map((article) => (
-            <ArticleCard key={article._id} article={article} /> // Jede ArticleCard erhält den Artikel als Prop
+            <ArticleCard key={article._id} article={article} /> // Jede ArticleCard erhält den Artikel
           ))}
         </>
       ) : (
         // Falls durch den Suchtext keine Artikel gefunden werden, wird ein Hinweis mit einem Reset-Button angezeigt.
         <Box
           sx={{
-            display: "flex", // Flex-Layout zum Zentrieren
+            display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            flexDirection: "column", // Elemente untereinander anordnen
+            flexDirection: "column",
           }}
         >
           <Typography

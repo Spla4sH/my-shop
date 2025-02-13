@@ -1,28 +1,13 @@
-// Importiere Material-UI-Komponenten und Funktionen für Styling und Layout
 import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-
-// Importiere den I18nextProvider für Mehrsprachigkeit
 import { I18nextProvider } from "react-i18next";
-
-// Importiere den Redux-Provider, um den globalen Store zur Verfügung zu stellen
 import { Provider } from "react-redux";
-
-// Importiere Router-Komponenten für die Navigation in der SPA
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-
-// Importiere allgemeine CSS-Datei
 import "./App.css";
-
-// Importiere selbst erstellte Komponenten für den Header, Footer u.a.
 import AppBar from "./components/AppBar/AppBar";
 import BackToTop from "./components/BackToTop/BackToTop";
 import Footer from "./components/Footer/Footer";
-
-// Importiere die i18n-Konfiguration
 import i18n from "./i18n/i18n";
-
-// Importiere Seiten-Komponenten
 import AllArticlesPage from "./pages/AllArticlesPage/AllArticlesPage";
 import ArticleDetailPage from "./pages/ArticleDetailPage/ArticleDetailPage";
 import CartPage from "./pages/CartPage/CartPage";
@@ -30,8 +15,6 @@ import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage/Loginpage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
-
-// Importiere den Redux-Store und das Theme
 import store from "./store/store";
 import theme from "./theme/theme";
 
@@ -43,7 +26,7 @@ function App() {
       <Provider store={store}>
         {/* I18nextProvider stellt Übersetzungsfunktionen bereit */}
         <I18nextProvider i18n={i18n}>
-          {/* Äußere Box als Container der gesamten Anwendung mit flexiblem Layout und mindestens voller Viewport-Höhe */}
+          {/* Äußere Box als Container der gesamten Anwendung mit flexiblem Layout */}
           <Box
             sx={{
               display: "flex",
@@ -55,7 +38,7 @@ function App() {
             <BackToTop />
             {/* CssBaseline sorgt für einen konsistenten Basisstil über alle Browser hinweg */}
             <CssBaseline />
-            {/* Router kapselt alle Routen der Single-Page-Application */}
+            {/* Router kapselt alle Routen */}
             <Router basename="/">
               {/* AppBar stellt den Header (Navigationsleiste) der Anwendung dar */}
               <AppBar />
@@ -78,14 +61,14 @@ function App() {
                     path="/article/:articleId"
                     element={<ArticleDetailPage />}
                   />
-                  {/* Dynamische Route für Kategorien, категорияId wird übergeben */}
+                  {/* Dynamische Route für Kategorien, categoryId wird übergeben */}
                   <Route
                     path="/category/:categoryId"
                     element={<CategoryPage />}
                   />
                 </Routes>
               </Box>
-              {/* Footer-Komponente, die am unteren Bildschirmrand Informationen oder Links anzeigt */}
+              {/* Footer-Komponente, die am unteren Bildschirmrand Informationen anzeigt */}
               <Footer />
             </Router>
           </Box>

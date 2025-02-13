@@ -1,4 +1,3 @@
-// Importiere benötigte Komponenten von Material-UI für Layout, Formulare, Buttons und Typografie
 import {
   Box,
   Button,
@@ -11,14 +10,13 @@ import {
 import React, { useState } from "react";
 // Importiere die Funktion zum Authentifizieren (POST-Request an die API)
 import { postLogin } from "../../api";
+import { useNavigate } from "react-router-dom"; // Add this import
 
 const LoginPage = () => {
   // Lokale Zustände für Email und Passwort, die durch die Eingabefelder aktualisiert werden
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // Früher wurde hier eine synchron arbeitende Funktion handleLogin kommentiert,
-  // die stattdessen durch die asynchrone Fassung ersetzt wurde.
+  const navigate = useNavigate();
 
   // Asynchrone Funktion, die beim Absenden des Formulars ausgeführt wird
   const handleLogin = async (event) => {
@@ -31,7 +29,7 @@ const LoginPage = () => {
     try {
       // Ruft postLogin auf, um die Nutzerdaten zu senden und eine Antwort der API zu erhalten
       const response = await postLogin(userData);
-      console.log(response); // Ausgabe der Antwort in der Konsole (hier kann z.B. die Navigation oder Speicherung des Tokens erfolgen)
+      console.log(response); // Ausgabe der Antwort in der Konsole
     } catch (error) {
       // Bei einem Fehler während des Logins wird dieser in der Konsole ausgegeben
       console.error("Error authenticate:", error);
@@ -55,12 +53,12 @@ const LoginPage = () => {
         <Box component="form" onSubmit={handleLogin} sx={{ width: "100%" }}>
           {/* TextField für die Eingabe der Email-Adresse */}
           <TextField
-            label="Email" // Beschriftung des Felds
-            type="email" // Definiert den Eingabetyp als Email
-            variant="outlined" // Verwenden eines Umriss-Stils
-            margin="normal" // Normale Margin-Einstellung
-            fullWidth // Nimmt die gesamte verfügbare Breite ein
-            required // Pflichtfeld
+            label="Email"
+            type="email"
+            variant="outlined"
+            margin="normal"
+            fullWidth
+            required
             value={email} // Binde den aktuellen Zustand an den Wert des Feldes
             onChange={(e) => setEmail(e.target.value)} // Aktualisiert den Zustand beim Ändern des Eingabefelds
           />
@@ -85,8 +83,10 @@ const LoginPage = () => {
           >
             Anmelden
           </Button>
-          {/* Zusätzlich vorhandener Button für die Registrierung (ohne Event-Handler) */}
-          <Button>Registrieren</Button>
+          {/* Button für die Registrierung */}
+          <Button fullWidth sx={{ mt: 2 }} onClick={() => navigate("/signup")}>
+            Registrieren
+          </Button>
         </Box>
       </Box>
     </Container>

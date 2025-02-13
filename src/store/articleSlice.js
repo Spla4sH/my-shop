@@ -34,7 +34,7 @@ const articleSlice = createSlice({
         existingArticle.quantity -= quantity;
       } else {
         // Sollte der Artikel nicht im Warenkorb vorhanden sein, wird er hinzugefügt.
-        // (Dieser Zweig könnte in der Praxis verbessert werden, da das Hinzufügen beim Reduzieren ungewöhnlich ist)
+
         state.cart.push({ id, quantity });
       }
     },
@@ -53,7 +53,7 @@ const articleSlice = createSlice({
   },
 });
 
-// Exportiert die einzelnen Aktionen, damit sie im gesamten Projekt verwendet werden können
+// Exportiert die einzelnen Aktionen, damit man sie überall nutzen kann.
 export const {
   addToCart,
   reduceQuantityOfArticleInCart,

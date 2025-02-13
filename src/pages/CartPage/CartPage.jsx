@@ -1,8 +1,5 @@
-// Importiere Icons von Material-UI für die Artikelerhöhung und -verringerung sowie zum Löschen eines Artikels
 import { Add, Remove } from "@mui/icons-material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-
-// Importiere diverse Material-UI-Komponenten für Layout, Tabellen, Buttons, Tooltip, etc.
 import {
   Box,
   Button,
@@ -59,7 +56,7 @@ const CartPage = () => {
   const [grandTotal, setGrandTotal] = useState(); // Gesamtpreis aller Artikel im Warenkorb
   const [articlesData, setArticlesData] = useState([]); // Speichert alle Artikeldaten, die aus der API gelesen werden
 
-  // Erster useEffect: Lädt alle Artikeldaten aus der API, sobald die Komponente gemountet wird
+  // Erster useEffect: Lädt alle Artikeldaten aus der API, sobald die Komponente geladen wird
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -117,9 +114,9 @@ const CartPage = () => {
       setArticlesInCart(elements); // Speichert die verarbeiteten Artikel im Zustand
     } catch (err) {
       console.error("Error processing cart items:", err);
-      setError("Failed to process cart items."); // Setzt einen Fehlertext
+      setError("Failed to process cart items.");
     } finally {
-      setLoading(false); // Beendet den Ladezustand
+      setLoading(false);
     }
   }, [cartItems, articlesData]);
 
@@ -135,11 +132,11 @@ const CartPage = () => {
   return (
     <Box
       sx={{
-        mt: { xs: 20, md: 2 }, // Unterschiedlicher oberer Margin je nach Bildschirmgröße
-        display: "flex", // Flexbox für die Anordnung der Elemente
-        justifyContent: "center", // Zentriert den Inhalt horizontal
-        alignItems: "center", // Zentriert den Inhalt vertikal
-        flexDirection: "column", // Ordnet die Elemente in einer Spalte an
+        mt: { xs: 20, md: 2 },
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
       }}
     >
       {/* Anzeige, wenn der Warenkorb leer ist: 
@@ -152,7 +149,7 @@ const CartPage = () => {
             <img
               src={emptyCartImg} // Bild des leeren Warenkorbs
               alt="cart icon"
-              style={{ width: 160, height: "auto" }} // Festgelegte Bildgröße
+              style={{ width: 160, height: "auto" }}
             />
             <Typography
               variant="h5"
@@ -229,7 +226,7 @@ const CartPage = () => {
                               handleDecreaseQuantity(item.article._id)
                             }
                             disabled={item.quantity <= 1} // Verhindert, dass die Menge unter 1 fällt
-                            title={t("decrease-quantity")} // Tooltip-Text
+                            title={t("decrease-quantity")}
                           >
                             <Remove />
                           </IconButton>
@@ -245,7 +242,7 @@ const CartPage = () => {
                             onClick={() =>
                               handleIncreaseQuantity(item.article._id)
                             }
-                            title={t("increase-quantity")} // Tooltip-Text
+                            title={t("increase-quantity")}
                           >
                             <Add />
                           </IconButton>
@@ -421,7 +418,7 @@ const CartPage = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => console.log("Payment initiated")} // Hier könnte später die Zahlungslogik hinzugefügt werden
+            onClick={() => (window.location.href = "https://www.paypal.com")}
           >
             {t("checkout")}
           </Button>

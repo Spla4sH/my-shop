@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from "@mui/material"; // Import von UI-Komponenten für Layout, Buttons und Textdarstellung
-import React, { useEffect, useState } from "react"; // Import von React und seinen Hooks
-import { useTranslation } from "react-i18next"; // Import des Hooks für mehrsprachige Texte
-import { getArticles } from "../../api"; // API-Funktion zum Laden der Artikel
-import ArticleCard from "../../components/ArticleCard/ArticleCard"; // Komponente zur Darstellung eines einzelnen Artikels
+import { Box, Button, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { getArticles } from "../../api";
+import ArticleCard from "../../components/ArticleCard/ArticleCard";
 
 function Home() {
   // useTranslation liefert die Übersetzungsfunktion t, sowie i18n (falls benötigt)
@@ -20,13 +20,12 @@ function Home() {
         const data = await getArticles();
         setArticles(data); // Setzt die geladenen Artikel in den lokalen Zustand
       } catch (error) {
-        // Wird hier ausgegeben, falls ein Fehler auftritt
         console.error("Error fetching articles:", error);
       }
     };
 
     fetchArticles();
-  }, []); // Leere Abhängigkeiten: Dieser Effekt wird nur einmal beim Mounten ausgeführt
+  }, []);
 
   // Funktion, die die Anzahl der angezeigten Artikel um 4 erhöht
   const handleShowMore = () => {
@@ -43,15 +42,15 @@ function Home() {
         {/* Welcome Section */}
         <Box
           sx={{
-            background: "linear-gradient(to right, lightyellow, white)", // Farbverlauf als Hintergrund
-            height: { xs: "25vh", md: "40vh" }, // Dynamische Höhe je nach Bildschirmgröße
+            background: "linear-gradient(to right, lightyellow, white)",
+            height: { xs: "25vh", md: "40vh" },
             display: "flex",
             marginTop: "100px",
-            justifyContent: "center", // Zentriert horizontal
-            alignItems: "center", // Zentriert vertikal
-            flexDirection: "column", // Anordnung der Elemente untereinander
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
             textAlign: "center",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Schatteneffekt
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
           }}
         >
           <Typography
@@ -72,17 +71,17 @@ function Home() {
           </Typography>
         </Box>
 
-        {/* Articles Section */}
+        {/* Artikelbereich */}
         <Box
           sx={{
             marginY: 2,
-            marginX: { xs: 1, lg: "120px", xl: "280px" }, // Dynamische Randabstände je nach Bildschirmgröße
+            marginX: { xs: 1, lg: "120px", xl: "280px" },
             display: "flex",
-            flexWrap: "wrap", // Ermöglicht Umbruch der Artikel, wenn nicht genügend Platz ist
+            flexWrap: "wrap",
             justifyContent: "center",
             alignItems: "center",
-            rowGap: 5, // Abstand zwischen den Zeilen
-            columnGap: 1, // Abstand zwischen den Spalten
+            rowGap: 5,
+            columnGap: 1,
             paddingTop: 5,
           }}
         >

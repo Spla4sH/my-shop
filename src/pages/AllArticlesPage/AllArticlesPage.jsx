@@ -1,11 +1,10 @@
-// Importiere benötigte Komponenten und Funktionen von Material-UI, React, Redux und weiteren Quellen
 import {
   Box,
   Button,
   CircularProgress,
   Typography,
   Toolbar,
-} from "@mui/material"; // UI-Komponenten für Layout, Buttons, Ladeanzeige, Text und Toolbar
+} from "@mui/material";
 import { useEffect, useState } from "react"; // React-Hooks für Nebenwirkungen (useEffect) und lokalen Zustand (useState)
 import { useDispatch, useSelector } from "react-redux"; // Redux-Hooks zur Interaktion mit dem globalen Store
 import { useTranslation } from "react-i18next"; // Hook für Internationalisierung (Übersetzungen)
@@ -26,12 +25,11 @@ function AllArticlesPage() {
 
   // useEffect zum Laden der Artikel beim ersten Rendern der Komponente
   useEffect(() => {
-    // Definiert eine asynchrone Funktion zum Abrufen der Artikel
     const fetchArticles = async () => {
       try {
         setLoading(true); // Setzt den Ladezustand auf "true", um anzuzeigen, dass Daten abgerufen werden
 
-        // Führt eine zufällige Verzögerung ein, um einen Fake-Delay zwischen 0 und 1000ms zu simulieren
+        // Führt eine zufällige Verzögerung ein, um einen "Fake Delay" zwischen 0 und 1000ms zu simulieren (sieht ganz cool aus)
         const randomDelay = Math.floor(Math.random() * 1000);
         await new Promise((resolve) => setTimeout(resolve, randomDelay));
 
@@ -40,13 +38,13 @@ function AllArticlesPage() {
         setArticles(data); // Speichert die abgerufenen Artikel im Zustand
         setFilteredArticles(data); // Initial wird die Filterliste mit allen Artikeln befüllt
       } catch (error) {
-        console.error("Error fetching articles:", error); // Konsolenausgabe falls ein Fehler beim Laden der Artikel auftritt
+        console.error("Error fetching articles:", error);
       } finally {
-        setLoading(false); // Unabhängig vom Erfolg wird der Ladeindikator ausgeschaltet
+        setLoading(false);
       }
     };
 
-    fetchArticles(); // Ruft die asynchrone Funktion auf
+    fetchArticles();
   }, []); // Leere Abhängigkeiten: Dieser Effekt wird nur einmal beim Mounten der Komponente ausgeführt
 
   // useEffect zum Aktualisieren der gefilterten Artikel, wenn sich entweder der geladene Artikelbestand oder der Suchtext ändert
@@ -78,22 +76,22 @@ function AllArticlesPage() {
     return (
       <Box
         sx={{
-          display: "flex", // Flex-Layout zur Zentrierung
-          justifyContent: "center", // Zentriert horizontal
-          alignItems: "center", // Zentriert vertikal
-          flexDirection: "column", // Ordnet Elemente untereinander
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
         }}
       >
         <CircularProgress /> {/* Animierte Ladeanzeige */}
         <Typography
           variant="h6"
           sx={{
-            textAlign: "center", // Zentrierter Text
-            marginY: 2, // Vertikaler Abstand
-            color: "primary.main", // Verwendet die Hauptfarbe des Themes
+            textAlign: "center",
+            marginY: 2,
+            color: "primary.main",
           }}
         >
-          {t("loading-articles")} {/* Übersetzter Text "Lade Artikel" */}
+          {t("loading-articles")}
         </Typography>
       </Box>
     );
@@ -106,11 +104,9 @@ function AllArticlesPage() {
       {/* Fügt zusätzlichen Platz ein, damit der Inhalt nicht unter der fixierten AppBar verschwindet */}
       <Box
         sx={{
-          // Hintergrundfarbe-Beispiel als Kommentar (wird momentan nicht verwendet)
-          // backgroundColor: { xs: "red", lg: "green", xl: "yellow" },
-          marginY: 10, // Vertikaler Margin
-          marginX: { xs: 1, lg: "120px", xl: "280px" }, // Horizontaler Margin, abhängig von der Bildschirmgröße
-          display: "flex", // Setzt Flexbox zur Anordnung der Artikel
+          marginY: 10,
+          marginX: { xs: 1, lg: "120px", xl: "280px" },
+          display: "flex",
           flexWrap: "wrap", // Erlaubt Zeilenumbrüche, wenn nicht genug Platz vorhanden ist
           // Justiert den Inhalt abhängig von der Anzahl der gefilterten Artikel
           justifyContent:
@@ -118,9 +114,9 @@ function AllArticlesPage() {
               ? { xs: "center", md: "flex-start" } // Bei 1 bis 3 Artikeln zentriert auf kleinen Bildschirmen, linksbündig auf mittleren Geräten
               : "center", // Für mehr als 3 Artikel wird der Inhalt zentriert
           alignItems: "center", // Zentriert die Artikel vertikal
-          rowGap: 5, // Abstand zwischen den Zeilen
-          columnGap: 1, // Abstand zwischen den Spalten
-          paddingTop: 5, // Padding oben zum Abstand vom oberen Rand
+          rowGap: 5,
+          columnGap: 1,
+          paddingTop: 5,
         }}
       >
         {filteredArticles.length > 0 ? (
@@ -134,16 +130,16 @@ function AllArticlesPage() {
           // Falls keine Artikel nach der Filterung vorhanden sind, wird eine Information und ein Button angezeigt
           <Box
             sx={{
-              display: "flex", // Flex-Container
-              justifyContent: "center", // Zentriert horizontal
-              alignItems: "center", // Zentriert vertikal
-              flexDirection: "column", // Elemente untereinander anordnen
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
             }}
           >
             <Typography
               variant="h5"
               color="primary.light"
-              sx={{ fontWeight: 500 }} // Mittlere Schriftstärke
+              sx={{ fontWeight: 500 }}
             >
               {t("no-results")} <b>{searchText}</b>{" "}
               {/* Zeigt an, dass keine Ergebnisse zum Suchtext gefunden wurden */}
@@ -159,4 +155,4 @@ function AllArticlesPage() {
   );
 }
 
-export default AllArticlesPage; // Exportiert die Komponente für den Einsatz in der App
+export default AllArticlesPage;
