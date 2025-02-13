@@ -1,6 +1,6 @@
 # myshop-app
 
-This is a Shop Application for "Hochschule Furtwangen" for the Course "Webprogrammierung mit React".
+This is a Shop Application for "Hochschule Furtwangen" for the Course "Webprogrammierung mit React" held by Prof. Dr. Noll and M.Sc. Manuel Fehrenbach.
 
 ## Table of Contents
 
@@ -59,11 +59,13 @@ npm run dev
 
 This will launch the app in your default web browser. By default, it runs on `http://localhost:5173`.
 
-To start the Backend Server:
+To start the Backend Server which is provided by the course:
 
 ```bash
 node app.js "shop"
 ```
+
+This will launch the Backend Server in your default web browser. By default, it runs on `http://localhost:3030`.
 
 ## Folder Structure
 
