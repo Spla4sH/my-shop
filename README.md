@@ -65,7 +65,7 @@ To start the Backend Server which is provided by the course:
 node app.js "shop"
 ```
 
-This will launch the Backend Server in your default web browser. By default, it runs on `http://localhost:3030`.
+This will launch the Backend Server in your default web browser. By default, it runs on `http://localhost:3030/shop`.
 
 ## Folder Structure
 
